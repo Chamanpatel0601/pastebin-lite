@@ -34,3 +34,80 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+
+
+# Pastebin-Lite 📝
+
+Pastebin-Lite is a lightweight web application that allows users to create text pastes and share them using a unique link.  
+Each paste can optionally expire after a given time (TTL) or after a maximum number of views.
+
+This project was built as a take-home assignment focusing on backend logic, constraints handling, and a clean UI.
+
+---
+
+## 🚀 Features
+
+- Create a text paste
+- Generate a unique, shareable link
+- Optional **Time To Live (TTL)** in seconds
+- Optional **Maximum View Count**
+- Paste automatically expires when:
+  - TTL expires, OR
+  - View limit is reached
+- Clean and simple UI
+- Open generated link with a single click
+- Proper error handling
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** Next.js (App Router), React
+- **Backend:** Next.js API Routes
+- **Database:** Upstash Redis
+- **Styling:** CSS Modules
+- **Deployment:** Vercel
+
+---
+
+##  Project Structure
+
+app/
+    page.jsx
+     page.module.css
+    p/
+     [id]/
+     page.jsx
+    api/
+     pastes/
+│   route.js
+│    [id]/
+│    route.js
+lib/
+    redis.js
+
+
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
+BASE_URL=http://localhost:3000
+
+
+
+---
+
+## Run Locally
+
+1. Install dependencies
+```bash
+npm install
