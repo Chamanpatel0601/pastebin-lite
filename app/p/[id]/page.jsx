@@ -1,16 +1,8 @@
 export default async function PastePage(props) {
-  const params = await props.params; // ✅ FIX
+  const params = await props.params;
   const id = params.id;
 
-  // const res = await fetch(
-  //   `${process.env.BASE_URL || "http://localhost:3000"}/api/pastes/${id}`,
-  //   { cache: "no-store" }
-  // );
-
-   const baseUrl =
-    process.env.BASE_URL || process.env.NEXT_PUBLIC_BASE_URL;
-
-  const res = await fetch(`${baseUrl}/api/pastes/${id}`, {
+  const res = await fetch(`/api/pastes/${id}`, {
     cache: "no-store",
   });
 
