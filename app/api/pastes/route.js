@@ -47,9 +47,14 @@ export async function POST(req) {
   //   url: `${baseUrl}/p/${id}`,
   // });
 
+  // return Response.json({
+  // id,
+  // url: `${baseUrl}/p/${id}`,
+  // });
   return Response.json({
   id,
-  url: `${baseUrl}/p/${id}`,
-  });
+  path: `/p/${id}`,
+});
+
 
 }
