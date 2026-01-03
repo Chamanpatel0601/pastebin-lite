@@ -1,10 +1,12 @@
-export default async function PastePage(props) {
-  const params = await props.params;
+export default async function PastePage({ params }) {
   const id = params.id;
 
-  const res = await fetch(`/api/pastes/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : ""}/api/pastes/${id}`,
+    { cache: "no-store" }
+  );
 
   if (!res.ok) {
     return <h1>404 - Paste Unavailable</h1>;
