@@ -1,9 +1,13 @@
 export default async function PastePage({ params }) {
-  // ✅ App Router me params ek Promise hota hai
+  // App Router params are async
   const { id } = await params;
 
-  // ✅ Relative fetch use karna best practice hai
-  const res = await fetch(`/api/pastes/${id}`, {
+  // Absolute URL for server-side fetch
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:3000";
+
+  const res = await fetch(`${baseUrl}/api/pastes/${id}`, {
     cache: "no-store",
   });
 
