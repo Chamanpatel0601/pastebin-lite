@@ -32,10 +32,7 @@ export default function Home() {
       return;
     }
 
-    // setUrl(data.url);
-
     setUrl(`${window.location.origin}${data.path}`);
-
   }
 
   return (

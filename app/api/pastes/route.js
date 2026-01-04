@@ -1,5 +1,3 @@
-
-
 import { redis } from "@/lib/redis";
 import { nanoid } from "nanoid";
 
@@ -36,25 +34,10 @@ export async function POST(req) {
     expires_at: ttl_seconds ? now + ttl_seconds * 1000 : null,
   };
 
-  await redis.set(`paste:${id}`, paste);
+  await redis.set(`paste:${id}`, JSON.stringify(paste));
 
-  // const baseUrl = process.env.BASE_URL || "http://localhost:3000";
-  // const baseUrl =
-  // process.env.NEXT_PUBLIC_BASE_URL || process.env.BASE_URL;
-
-  // return Response.json({
-  //   id,
-  //   url: `${baseUrl}/p/${id}`,
-  // });
-
-  // return Response.json({
-  // id,
-  // url: `${baseUrl}/p/${id}`,
-  // });
   return Response.json({
-  id,
-  path: `/p/${id}`,
-});
-
-
+    id,
+    path: `/p/${id}`,
+  });
 }
